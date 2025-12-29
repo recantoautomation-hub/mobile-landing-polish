@@ -1,28 +1,27 @@
+import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo-95dispatch.png";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 lg:py-12 border-t border-[hsla(0,0%,100%,0.10)]">
+    <footer className="py-7 lg:py-[46px] border-t border-[rgba(255,255,255,0.10)]">
       <div className="container">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2.5 pt-[18px]">
+          <div className="flex items-center gap-2">
             <img 
               src={logo} 
               alt="95Dispatch logo" 
-              className="w-8 h-8 rounded-lg"
+              className="w-6 h-6 rounded-lg"
             />
-            <span className="text-sm text-muted-foreground font-bold">
-              © {currentYear} 95Dispatch. All rights reserved.
+            <span className="text-[13px] text-[rgba(255,255,255,0.55)] font-semibold">
+              <strong className="text-[rgba(255,255,255,0.70)]">95Dispatch</strong> — {t("brand.tagline")}
             </span>
           </div>
           
-          <div className="flex items-center gap-6 text-sm text-muted-foreground font-bold">
-            <a href="#services" className="hover:text-foreground transition-colors">Services</a>
-            <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
-            <a href="#benefits" className="hover:text-foreground transition-colors">Benefits</a>
-            <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
+          <div className="text-[13px] text-[rgba(255,255,255,0.55)] font-semibold">
+            © {currentYear} 95Dispatch. {t("footer.rights")}
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import LeadForm from "@/components/landing/LeadForm";
@@ -10,31 +11,33 @@ import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
-      <Header />
-      
-      <main>
-        {/* Hero + Form Section */}
-        <section className="lg:py-8">
-          <div className="container">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 lg:gap-8 items-start">
-              <Hero />
-              <div className="lg:sticky lg:top-24 lg:pt-8">
-                <LeadForm />
+    <LanguageProvider>
+      <div className="min-h-screen">
+        <Header />
+        
+        <main>
+          {/* Hero + Form Section */}
+          <section className="hero">
+            <div className="container">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-[22px] items-start">
+                <Hero />
+                <div className="lg:mt-[66px]">
+                  <LeadForm />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <Services />
-        <HowItWorks />
-        <Benefits />
-        <Testimonials />
-        <FAQ />
-      </main>
+          <Services />
+          <HowItWorks />
+          <Benefits />
+          <Testimonials />
+          <FAQ />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 };
 
